@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Bot Configuration</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .hidden-code {
+            display: none; /* Hide the code */
+        }
+        .display-config {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: auto;
+        }
+        pre {
+            margin: 0;
+            white-space: pre-wrap; /* Preserve whitespace */
+        }
+    </style>
+</head>
+<body>
+    <h1>Trading Bot Configuration</h1>
+    <p>Here is the configuration for the trading bot:</p>
+    <div class="display-config">
+        <pre>
+            &lt;TradingBotConfig&gt;
+                &lt;!-- Initial Configuration --&gt;
+                &lt;InitialStake value="1.0"/&gt; &lt;!-- Starting stake amount --&gt;
+                &lt;StakeMultiplier value="1.0"/&gt; &lt;!-- Multiplier for stake adjustments --&gt;
+
+                &lt;!-- Risk Management --&gt;
+                &lt;RiskManagement&gt;
+                    &lt;StopLossPercentage value="0.02"/&gt; &lt;!-- Stop loss at 2% --&gt;
+                    &lt;RecoveryThreshold value="0.01"/&gt; &lt;!-- Recovery starts at 1% loss --&gt;
+                    &lt;MaxLoss value="0.05"/&gt; &lt;!-- Maximum loss allowed --&gt;
+                &lt;/RiskManagement&gt;
+
+                &lt;!-- Profit Management --&gt;
+                &lt;ProfitManagement&gt;
+                    &lt;ProfitTarget value="0.10"/&gt; &lt;!-- Target profit of 10% --&gt;
+                    &lt;TrailingStop value="0.03"/&gt; &lt;!-- Trailing stop at 3% --&gt;
+                &lt;/ProfitManagement&gt;
+
+                &lt;!-- Trade Parameters --&gt;
+                &lt;TradeParameters&gt;
+                    &lt;WinStreakToRecover value="3"/&gt; &lt;!-- Win streak to end recovery --&gt;
+                    &lt;RecoveryStakeMultiplier value="2.0"/&gt; &lt;!-- Multiplier during recovery --&gt;
+                &lt;/TradeParameters&gt;
+
+                &lt;!-- Trade Conditions --&gt;
+                &lt;TradeConditions&gt;
+                    &lt;CalculateProfitFormula&gt;
+                        &lt;![CDATA[
+                        ROUND(totalProfit * 100, 2) --> Rounds profit to 2 decimal places
+                        ]]&gt;
+                    &lt;/CalculateProfitFormula&gt;
+                    &lt;CalculateLossFormula&gt;
+                        &lt;![CDATA[
+                        ABS(totalLoss) --> Absolute value of loss
+                        ]]&gt;
+                    &lt;/CalculateLossFormula&gt;
+                &lt;/TradeConditions&gt;
+
+                &lt;!-- Recovery Logic --&gt;
+                &lt;RecoveryLogic&gt;
+                    &lt;StartRecoveryIfLossExceeds value="0.01"/&gt; &lt;!-- Start recovery if loss exceeds 1% --&gt;
+                    &lt;EndRecoveryIfWinStreakExceeds value="3"/&gt; &lt;!-- End recovery if win streak is greater than 3 --&gt;
+                &lt;/RecoveryLogic&gt;
+
+                &lt;!-- Alerts and Logging --&gt;
+                &lt;Alerts&gt;
+                    &lt;ProfitAlert threshold="0.10"/&gt; &lt;!-- Alert at 10% profit --&gt;
+                    &lt;LossAlert threshold="0.05"/&gt; &lt;!-- Alert at 5% loss --&gt;
+                &lt;/Alerts&gt;
+
+                &lt;!-- Additional Settings --&gt;
+                &lt;AdditionalSettings&gt;
+                    &lt;MaxConcurrentTrades value="1"/&gt; &lt;!-- Limit to 1 concurrent trade --&gt;
+                    &lt;TradeTimeout value="60"/&gt; &lt;!-- Timeout for trades in seconds --&gt;
+                &lt;/AdditionalSettings&gt;
+            &lt;/TradingBotConfig&gt;
+        </pre>
+    </div>
+    <div class="hidden-code">
+        <!-- XML code is hidden from the browser view -->
+        &lt;TradingBotConfig&gt;
+            &lt;InitialStake value="1.0"/&gt;
+            &lt;StakeMultiplier value="1.0"/&gt;
+            &lt;RiskManagement&gt;
+                &lt;StopLossPercentage value="0.02"/&gt;
+                &lt;RecoveryThreshold value="0.01"/&gt;
+                &lt;MaxLoss value="0.05"/&gt;
+            &lt;/RiskManagement&gt;
+            &lt;ProfitManagement&gt;
+                &lt;ProfitTarget value="0.10"/&gt;
+                &lt;TrailingStop value="0.03"/&gt;
+            &lt;/ProfitManagement&gt;
+            &lt;TradeParameters&gt;
+                &lt;WinStreakToRecover value="3"/&gt;
+                &lt;RecoveryStakeMultiplier value="2.0"/&gt;
+            &lt;/TradeParameters&gt;
+            &lt;TradeConditions&gt;
+                &lt;CalculateProfitFormula&gt;
+                    &lt;![CDATA[
+                    ROUND(totalProfit * 100, 2)
+                    ]]&gt;
+                &lt;/CalculateProfitFormula&gt;
+                &lt;CalculateLossFormula&gt;
+                    &lt;![CDATA[
+                    ABS(totalLoss)
+                    ]]&gt;
+                &lt;/CalculateLossFormula&gt;
+            &lt;/TradeConditions&gt;
+            &lt;RecoveryLogic&gt;
+                &lt;StartRecoveryIfLossExceeds value="0.01"/&gt;
+                &lt;EndRecoveryIfWinStreakExceeds value="3"/&gt;
+            &lt;/RecoveryLogic&gt;
+            &lt;Alerts&gt;
+                &lt;ProfitAlert threshold="0.10"/&gt;
+                &lt;LossAlert threshold="0.05"/&gt;
+            &lt;/Alerts&gt;
+            &lt;AdditionalSettings&gt;
+                &lt;MaxConcurrentTrades value="1"/&gt;
+                &lt;TradeTimeout value="60"/&gt;
+            &lt;/AdditionalSettings&gt;
+        &lt;/TradingBotConfig&gt;
+    </div>
+</body>
+</html>
